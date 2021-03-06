@@ -7,3 +7,6 @@ The is the sixth homework assignment from the [MSU Coding Boot Camp](https://boo
 * When user views the UV index they are presented with a color that indicates whether the conditions are favorable, moderate, or severe.
 * When the user views future weather conditions for that city they are presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity.
 * When the user clicks on a city in the search history they are presented with current and future conditions for that city.
+
+https://revywatson.github.io/weather-dashboard/
+![weather-dash](https://user-images.githubusercontent.com/76264693/110224767-82de1800-7eac-11eb-9b31-b156706e17db.png)
