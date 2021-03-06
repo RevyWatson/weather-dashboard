@@ -1,58 +1,73 @@
 let searchBtn = document.querySelector("#searchBtn");
 let cityInput = document.querySelector("#cityInput");
-let apiDataList = document.querySelector("ul");
+let dataCard = document.querySelector("#data-card");
+let h3El = document.createElement("h3"); //where local storage is posting the city name
+let weatherCard = document.createElement("article"); //where I'm trying to post the fetched weather data
 
 let cityName = localStorage.getItem("cityName");
 
 
-let cities = [];
-
+//local storage works in console but nothing beyond that
 searchBtn.addEventListener("click", function () {
     let city = cityInput.value;
     localStorage.setItem("cityName", city);
+    getApi(city);
+
+    dataCard.append(h3El);
+    h3El.textContent = city;
 });    
 
-//combind funtions of event listener - can't have two different functions assigned to it
+//API supplies extensive list of cities, temperature, humidity, and windspeed
+function getApi(city) {
+    console.log(city);
+  let requestUrl ="http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=8c5e97df86817a30f7d6c5345a9a5165";
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })          
+    .then(function (data) {
+      console.log(data);
+      console.log(data.main.temp);
+      console.log(data.main.humidity);
+      console.log(data.wind.speed);
+      console.log(data.coord.lat, data.coord.lon);
+      getUVIndex(data.coord.lat, data.coord.lon);
+      fiveDay(city);
+      
+      dataCard.append(weatherCard);
+      weatherCard.textContent = data; //trying to print fetched data to the page. prints as "[object Object]"
+    });
+}
 
-//fetch first api (city names, lat and long)
-//.then fetch second api (weather)
-//find a way to connect the api's to work together
+//API provides UV Index
+function getUVIndex(lat, lon) {
+    console.log(lat, lon);
+    let requestURL = "http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid=8c5e97df86817a30f7d6c5345a9a5165";
+    fetch(requestURL)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+        console.log(data.value);
+    })
+}
 
-// function getApi() {
-//     let requestURL = ""
-//     }
-
-// fetch(requestURL)
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         for (let i = 0; i < data.length; i++) {
-//             let listItem = document.createElement('li');
-//             listItem.textContent = data[i].html_url;
-//             apiDataList.appendChild(listItem);
-//         }
-//     });
-
-// searchBtn.addEventListener('click', getApi);
-
-//From BRANDON - extensive function that retrives any correctly spelled city in our console
-// function getApi(city) {
-//     console.log(city);
-//   let requestUrl =
-//     "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=InsertYourAPIHere";
-//   fetch(requestUrl)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log("this the data from fetch", data);
-//       console.log(data.main.temp);
-//       console.log(data.main.humidity);
-//       console.log(data.wind.speed);
-//       console.log(getuvIndex(data.coord.lat, data.coord.lon));
-//     });
-// }
+//API provides five day forcast
+function fiveDay(city) {
+    console.log(city);
+    let requestURL = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=8c5e97df86817a30f7d6c5345a9a5165";
+    fetch(requestURL)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+        console.log(data.list[5].main.temp);
+        //for loop - grab dt text and 3pm time
+        //cut string, splice
+    })
+}
 
 // WHEN I search for a city
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
