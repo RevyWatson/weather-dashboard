@@ -7,12 +7,17 @@ let cityName = localStorage.getItem("cityInput");
 
 //local storage works in console but nothing beyond that
 searchBtn.addEventListener("click", function () {
-    let cityName = cityInput.value;
-    localStorage.setItem("name", cityName);
-    getApi(cityName);
+    let city = cityInput.value;
+    localStorage.setItem("name", city);
+    getApi(city);
 
     cityInput.textContent = cityName; //trying to set the storage to be in the input but its not working.
-});    
+});
+
+//create viable that retrieves form using get element by ID
+//form.addEventlisteng ("submit", fundtion name)
+//function name event.prevent default
+//local storage
 
 //API supplies extensive list of cities, temperature, humidity, and windspeed
 function getApi(city) {
@@ -66,14 +71,122 @@ function fiveDay(city) {
     })
 }
 
-// WHEN I search for a city
-// THEN I am presented with current and future conditions for that city and that city is added to the search history
-// WHEN I view current weather conditions for that city
-// THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-// WHEN I view the UV index
-// THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-// WHEN I view future weather conditions for that city
-// THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
+button.addEventListener('click', function(name){
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+input.value+'&units=imperial&appid=a0de227abc92faab1408fb9b7d1d15c2')
+    .then(response => response.json())
+    .then(data => {
+    let nameVal =data['name'];
+    let tempVal =data['main']['temp'];
+    let humVal =data['main']['humidity'];
+    let windVal =data['wind']['speed'];
+    let uvVal =data['coord']['lat']
+    let uviVal =data['coord']['lon']
+    //let celcius = Math.round(parseFloat(name.main.temp)-273.15);
+    //let fahrenheit = Math.round(((parseFloat(name.main.temp)-273.15)*1.8)+32);
+    main.innerHTML =nameVal;
+    temp.innerHTML ="Tempature: "+tempVal+'&deg;';
+    humidity.innerHTML ="Humidity: "+humVal;
+    wind.innerHTML ="Wind Speed: "+windVal;
+    uv.innerHTML ="UV Index: "+uvVal+uviVal;
+    input.value ="";
+    console.log(nameVal, tempVal, humVal, windVal, uvVal, uviVal)
+    })
 
+
+
+fetch(newUrl, {
+    method: "GET",
+    withCredentials: true
+  })
+    .then(response => response.json())
+    .then(function (data) {
+      const dayArray = data['list'];
+      console.log("dayArray");
+      for (let index = 0; index < dayArray[5]; index++) {
+        console.log("newUrl", data);
+      }
+      //let celcius = Math.round(parseFloat(name.main.temp)-273.15);
+      //const fahrenheit = Math.round(((parseFloat(name.main.temp)-273.15)*1.8)+32);
+      document.getElementById("name").innerHTML = "name: " + nameVal;
+      console.log("nameVal");
+      document.getElementById("temp").innerHTML = "Tempature: " + tempVal;
+      document.getElementById("humidity").innerHTML = "Humidity: " + humVal;
+      document.getElementById("wind-speed").innerHTML = "Wind Speed: " + windVal;
+      document.getElementById("uv-index").innerHTML = "UV Index: " + uvVal + " " + uviVal;
+      console.log(nameVal, tempVal, humVal, windVal, uvVal, uviVal);
+      if (windVal > 5) {
+        document.getElementById('main').className = "fas fa-wind";
+        document.getElementById('main').innerHTML = "feels windy";
+      }
+      else {
+        document.getElementById('main').className = "fas fa-sun";
+        document.getElementById('main').innerHTML = "feels nice";
+      }
+      /////////////////////////////////////////////////////////////////////////////////////
+      document.getElementById("newNameDay2").innerHTML = "name: " + nameVal;
+      console.log("nameVal");
+      document.getElementById("newTempDay2").innerHTML = "Tempature: " + tempVal;
+      document.getElementById("newHumidityDay2").innerHTML = "Humidity: " + humVal;
+      document.getElementById("newWind-speedDay2").innerHTML = "Wind Speed: " + windVal;
+      document.getElementById("newUv-indexDay2").innerHTML = "UV Index: " + uvVal + " " + uviVal;
+      console.log(nameVal, tempVal, humVal, windVal, uvVal, uviVal);
+      if (windVal > 5) {
+        document.getElementById('newMainDay2').className = "fas fa-wind";
+        document.getElementById('newMainDay2').innerHTML = "feels windy";
+      }
+      else {
+        document.getElementById('newMainDay2').className = "fas fa-sun";
+        document.getElementById('newMainDay2').innerHTML = "feels nice";
+      }
+      ///////////////////////////////////////////////////////////////////////////////////
+      document.getElementById("newNameDay3").innerHTML = "name: " + nameVal;
+      console.log("nameVal");
+      document.getElementById("newTempDay3").innerHTML = "Tempature: " + tempVal;
+      document.getElementById("newHumidityDay3").innerHTML = "Humidity: " + humVal;
+      document.getElementById("newWind-speedDay3").innerHTML = "Wind Speed: " + windVal;
+      document.getElementById("newUv-indexDay3").innerHTML = "UV Index: " + uvVal + " " + uviVal;
+      console.log(nameVal, tempVal, humVal, windVal, uvVal, uviVal);
+      if (windVal > 5) {
+        document.getElementById('newMainDay3').className = "fas fa-wind";
+        document.getElementById('newMainDay3').innerHTML = "feels windy";
+      }
+      else {
+        document.getElementById('newMainDay3').className = "fas fa-sun";
+        document.getElementById('newMainDay3').innerHTML = "feels nice";
+      }
+      ////////////////////////////////////////////////////////////////////////////////////////
+      document.getElementById("newNameDay4").innerHTML = "name: " + nameVal;
+      console.log("nameVal");
+      document.getElementById("newTempDay4").innerHTML = "Tempature: " + tempVal;
+      document.getElementById("newHumidityDay4").innerHTML = "Humidity: " + humVal;
+      document.getElementById("newWind-speedDay4").innerHTML = "Wind Speed: " + windVal;
+      document.getElementById("newUv-indexDay4").innerHTML = "UV Index: " + uvVal + " " + uviVal;
+      console.log(nameVal, tempVal, humVal, windVal, uvVal, uviVal);
+      if (windVal > 5) {
+        document.getElementById('newMainDay4').className = "fas fa-wind";
+        document.getElementById('newMainDay4').innerHTML = "feels windy";
+      }
+      else {
+        document.getElementById('newMainDay4').className = "fas fa-sun";
+        document.getElementById('newMainDay4').innerHTML = "feels nice";
+      }
+      /////////////////////////////////////////////////////////////////////////////////////////////
+      document.getElementById("newNameDay5").innerHTML = "name: " + nameVal;
+      console.log("nameVal");
+      document.getElementById("newTempDay5").innerHTML = "Tempature: " + tempVal;
+      document.getElementById("newHumidityDay5").innerHTML = "Humidity: " + humVal;
+      document.getElementById("newWind-speedDay5").innerHTML = "Wind Speed: " + windVal;
+      document.getElementById("newUv-indexDay5").innerHTML = "UV Index: " + uvVal + " " + uviVal;
+      console.log(nameVal, tempVal, humVal, windVal, uvVal, uviVal);
+      if (windVal > 5) {
+        document.getElementById('newMainDay5').className = "fas fa-wind";
+        document.getElementById('newMainDay5').innerHTML = "feels windy";
+      }
+      else {
+        document.getElementById('newMainDay5').className = "fas fa-sun";
+        document.getElementById('newMainDay5').innerHTML = "feels nice";
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
