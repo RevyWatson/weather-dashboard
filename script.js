@@ -1,20 +1,17 @@
 let searchBtn = document.querySelector("#searchBtn");
 let cityInput = document.querySelector("#cityInput");
 let dataCard = document.querySelector("#data-card");
-let h3El = document.createElement("h3"); //where local storage is posting the city name
 let weatherCard = document.createElement("article"); //where I'm trying to post the fetched weather data
 
-let cityName = localStorage.getItem("cityName");
-
+let cityName = localStorage.getItem("cityInput");
 
 //local storage works in console but nothing beyond that
 searchBtn.addEventListener("click", function () {
-    let city = cityInput.value;
-    localStorage.setItem("cityName", city);
-    getApi(city);
+    let cityName = cityInput.value;
+    localStorage.setItem("name", cityName);
+    getApi(cityName);
 
-    dataCard.append(h3El);
-    h3El.textContent = city;
+    cityInput.textContent = cityName; //trying to set the storage to be in the input but its not working.
 });    
 
 //API supplies extensive list of cities, temperature, humidity, and windspeed
