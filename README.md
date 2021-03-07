@@ -10,3 +10,6 @@ The is the sixth homework assignment from the [MSU Coding Boot Camp](https://boo
 
 https://revywatson.github.io/weather-dashboard/
 ![weather-dash](https://user-images.githubusercontent.com/76264693/110224767-82de1800-7eac-11eb-9b31-b156706e17db.png)
+
+## How it Actually Turned Out
+The above acceptance critria was not met. This application isn't functional. Initially it was fetching data from the APIs and logging it in the console. As soon as the page went live it began to log errors in the console instead of displaying the fetched data. After trying to debug this issue for a few hours, it began to load to a 405 page after pushing the search button.
