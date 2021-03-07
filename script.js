@@ -17,7 +17,7 @@ searchBtn.addEventListener("click", function () {
 //API supplies extensive list of cities, temperature, humidity, and windspeed
 function getApi(city) {
     console.log(city);
-  let requestUrl ="http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=8c5e97df86817a30f7d6c5345a9a5165";
+  let requestUrl ="http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=8c5e97df86817a30f7d6c5345a9a5165"
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -39,7 +39,7 @@ function getApi(city) {
 //API provides UV Index
 function getUVIndex(lat, lon) {
     console.log(lat, lon);
-    let requestURL = "http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid=8c5e97df86817a30f7d6c5345a9a5165";
+    let requestURL = "http://api.openweathermap.org/data/2.5/uvi?lat="+lat+"&lon="+lon+"&appid=8c5e97df86817a30f7d6c5345a9a5165"
     fetch(requestURL)
     .then(function(response) {
         return response.json();
@@ -53,7 +53,7 @@ function getUVIndex(lat, lon) {
 //API provides five day forcast
 function fiveDay(city) {
     console.log(city);
-    let requestURL = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=8c5e97df86817a30f7d6c5345a9a5165";
+    let requestURL = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=8c5e97df86817a30f7d6c5345a9a5165"
     fetch(requestURL)
     .then(function(response) {
         return response.json();
