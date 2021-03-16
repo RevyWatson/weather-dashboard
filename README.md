@@ -1,5 +1,5 @@
 # Weather Dashboard
-Weather application provides accurate weather information for the chosen location utilizing the API [OpenWeather](https://openweathermap.org/api) to retrieve the data for a given city and client-side local storage.
+Weather application provides accurate weather information for the chosen location utilizing the API [OpenWeather](https://openweathermap.org/api) to retrieve the data for a given city and client-side local storage. This application uses dynamic HTML, [Bootstrap](https://getbootstrap.com/) CSS framework, and is powered by JavaSctipt.
 
 ## Acceptance Criteria
 * When user searches for a city they are presented with current and future conditions for that city and that city is added to the search history.
