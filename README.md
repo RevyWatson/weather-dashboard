@@ -1,5 +1,5 @@
 # Weather Dashboard
-The is the sixth homework assignment from the [MSU Coding Boot Camp](https://bootcamp.msu.edu/coding/landing/?s=Google-Brand_RFull_&msg_cv_scta=4&msg_cv_stbn=1&msg_cv_fcta=1&fqvar1=3&dki=Learn%20Coding&pkw=msu%20coding%20bootcamp&pcrid=471460105653&pmt=e&utm_source=google&utm_medium=cpc&utm_campaign=GGL%7CMICHIGAN-STATE-UNIVERSITY%7CSEM%7CCODING%7C-%7COFL%7C_RFull_%7CALL%7CBRD%7CEXACT%7CCore%7CBootcamp&utm_term=msu%20coding%20bootcamp&s=google&k=msu%20coding%20bootcamp&utm_adgroupid=106134459970&utm_locationphysicalms=9016918&utm_matchtype=e&utm_network=g&utm_device=c&utm_content=471460105653&utm_placement=&gclid=Cj0KCQiA-OeBBhDiARIsADyBcE7Y_HuK3nbJPvfuQNXFO-pcYTApJovFYDJxTBtxpXeIn_4tCA74fnYaAqoAEALw_wcB&gclsrc=aw.ds). This assignment required the use of [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities and local storage.
+Weather application provides accurate weather information for the chosen location utilizing the API [OpenWeather](https://openweathermap.org/api) to retrieve the data for a given city and client-side local storage.
 
 ## Acceptance Criteria
 * When user searches for a city they are presented with current and future conditions for that city and that city is added to the search history.
@@ -8,8 +8,9 @@ The is the sixth homework assignment from the [MSU Coding Boot Camp](https://boo
 * When the user views future weather conditions for that city they are presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity.
 * When the user clicks on a city in the search history they are presented with current and future conditions for that city.
 
-https://revywatson.github.io/weather-dashboard/
 ![weather-dash](https://user-images.githubusercontent.com/76264693/110224767-82de1800-7eac-11eb-9b31-b156706e17db.png)
 
-## How it Actually Turned Out
-The above acceptance critria was not met. This application isn't functional. Initially it was fetching data from the APIs and logging it in the console. As soon as the page went live it began to log errors in the console instead of displaying the fetched data. After trying to debug this issue for a few hours, it began to load to a 405 page after pushing the search button.
+## Future Developement
+The above acceptance critria was not met. This application currently isn't functional. Initially it was fetching data from the API and logging it in the console. As soon as the page went live it began to log errors in the console instead of displaying the fetched data. After trying to debug this issue for a few hours, it began to load to a 405 page after pushing the search button. I didn't have time to correct this. In the near future I would like to correct these errors and complete the project.
+
+Weather Dashboard: https://revywatson.github.io/weather-dashboard/
